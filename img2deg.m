@@ -13,10 +13,10 @@ EdgeImage = edge(Input,'Prewitt');
 % È¡±ßÔµÖÐÏß
 [height,weigh] = size(EdgeImage);
 MidLineStart = 40;
-MidLineEnd = weigh - 150;
+MidLineEnd = weigh - 40;
 MidLineX = MidLineStart;
 
-MidLineArray = zeros(3,weigh-190);
+MidLineArray = zeros(3,weigh-80);
 
 for i = 1  : MidLineEnd-MidLineStart
     MidLineYUp = floor(weigh/2);

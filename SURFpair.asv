@@ -1,0 +1,41 @@
+num= zeros(40,40);
+p = 1;
+aaa = 1;
+% 
+% for a = 1:4
+%     for b = 1:10
+%         q = 1;
+%         for c = 1:4
+%             for d = 1:10  
+a = 1;
+b = 1;
+c = 1;
+d = 5;
+
+                s1=strcat('E:\图像处理与机器视觉\590\图像增强实现2-1\','590-',num2str(a),'-',num2str(b),'-','1','.bmp'); 
+                I1 = imread(s1);
+                s2=strcat('E:\图像处理与机器视觉\590\图像增强实现2-1\','590-',num2str(c),'-',num2str(d),'-','1','.bmp'); 
+                I2 = imread(s2);
+
+                points1 = detectSURFFeatures(I1);
+                points2 = detectSURFFeatures(I2);
+                [f1,vpts1] = extractFeatures(I1,points1);
+                [f2,vpts2] = extractFeatures(I2,points2);
+                indexPairs = matchFeatures(f1,f2) ;
+                matchedPoints1 = vpts1(indexPairs(:,1));
+                matchedPoints2 = vpts2(indexPairs(:,2));
+                % figure; showMatchedFeatures(I1,I2,matchedPoints1,matchedPoints2);
+                % legend('matched points 1','matched points 2');
+                
+                计算匹配到的te
+                [m,n] = size(indexPairs);
+                num(p, q) = m;    
+                
+%                 q = q+1;
+%                 fprintf('执行次数 %d .\n', aaa);
+%                 aaa = aaa + 1;
+%             end
+%         end
+%         p = p+1;
+%     end
+% end
