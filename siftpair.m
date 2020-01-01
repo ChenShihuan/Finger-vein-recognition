@@ -8,11 +8,14 @@ for a = 1:4
     for b = 1:10
         q = 1;
         for c = 1:4
-            for d = 1:10                        
-                s1=strcat('E:\图像处理与机器视觉\590\图像增强实现2-1\','590-',num2str(a),'-',num2str(b),'-','1','.bmp'); 
-                i1 = imread(s1);
-                s2=strcat('E:\图像处理与机器视觉\590\图像增强实现2-1\','590-',num2str(c),'-',num2str(d),'-','1','.bmp'); 
-                i2 = imread(s2);
+            for d = 1:10          
+a = 1;
+b = 1;
+c = 3;
+d = 2;
+
+                s1=strcat('.\590\图像增强实现2-1\','590-',num2str(a),'-',num2str(b),'-','1','.bmp'); 
+                s2=strcat('.\590\图像增强实现2-1\','590-',num2str(c),'-',num2str(d),'-','1','.bmp'); 
                 num(p, q) = match(s1,s2);    
                 q = q+1;
                 fprintf('执行次数 %d .\n', aaa);

@@ -1,0 +1,6 @@
+*.asv
+
+# ignore the .vscode folder
+.vscode/
+
+绘图/

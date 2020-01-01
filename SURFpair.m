@@ -9,12 +9,12 @@ for a = 1:4
             for d = 1:10  
 % a = 1;
 % b = 1;
-% c = 2;
-% d = 1;
+% c = 4;
+% d = 6;
 
-                s1=strcat('E:\图像处理与机器视觉\590\图像增强实现2-1\','590-',num2str(a),'-',num2str(b),'-','1','.bmp'); 
+                s1=strcat('.\590\图像增强实现2-1\','590-',num2str(a),'-',num2str(b),'-','1','.bmp'); 
                 I1 = imread(s1);
-                s2=strcat('E:\图像处理与机器视觉\590\图像增强实现2-1\','590-',num2str(c),'-',num2str(d),'-','1','.bmp'); 
+                s2=strcat('.\590\图像增强实现2-1\','590-',num2str(c),'-',num2str(d),'-','1','.bmp'); 
                 I2 = imread(s2);
 
                 points1 = detectSURFFeatures(I1);
@@ -25,7 +25,8 @@ for a = 1:4
 %                 indexPairs = matchFeatures(f1,f2,'Method','Approximate', 'MatchThreshold', 1, 'MaxRatio', 0.5) ;
                 matchedPoints1 = vpts1(indexPairs(:,1));
                 matchedPoints2 = vpts2(indexPairs(:,2));
-%                 figure; showMatchedFeatures(I1,I2,matchedPoints1,matchedPoints2);
+%                 figure; 
+%                 showMatchedFeatures(I1,I2,matchedPoints1,matchedPoints2,'montage');
 %                 legend('matched points 1','matched points 2');
                 
                 % 计算匹配到的特征点数量
@@ -41,10 +42,10 @@ for a = 1:4
     end
 end
 
-% num(num<3)=0;
-% num(num>100)=40;
-% figure
-% imshow(num)
+num(num<3)=0;
+num(num>100)=40;
+figure
+imshow(num)
 
 InsideTheClass = [[SURFPairArray(1:10,1:10),SURFPairArray(11:20,11:20)];[SURFPairArray(21:30,21:30),SURFPairArray(31:40,31:40)]];
 InsideTheClass = InsideTheClass(InsideTheClass<60);

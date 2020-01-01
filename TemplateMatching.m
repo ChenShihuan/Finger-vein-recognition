@@ -9,12 +9,12 @@ for a = 1:4
             for d = 1:10  
 % a = 1;
 % b = 1;
-% c = 2;
-% d = 1;
+% c = 4;
+% d = 3;
 
-                s1=strcat('E:\图像处理与机器视觉\590\gabor1\','590-',num2str(a),'-',num2str(b),'-','1','.bmp'); 
+                s1=strcat('.\590\gabor1\','590-',num2str(a),'-',num2str(b),'-','1','.bmp'); 
                 I1 = imread(s1);
-                s2=strcat('E:\图像处理与机器视觉\590\gabor1\','590-',num2str(c),'-',num2str(d),'-','1','.bmp'); 
+                s2=strcat('.\590\gabor1\','590-',num2str(c),'-',num2str(d),'-','1','.bmp'); 
                 I2 = imread(s2);
             
                 InputImg = gpuArray(I1);
@@ -32,15 +32,15 @@ for a = 1:4
 
                 corr = normxcorr2(TemImg,InputImg);
             
-%             figure, surf(c), shading flat
-%             [ypeak, xpeak] = find(c==max(c(:)));
-
+%             figure, surf(corr), shading flat
+%             [ypeak, xpeak] = find(c==max(corr(:)));
+% 
 %             yoffSet = ypeak-size(TemImg,1);
 %             xoffSet = xpeak-size(TemImg,2);
-
-            % figure
-            % imshow(peppers);
-            % imrect(gca, [xoffSet+1, yoffSet+1, size(onion,2), size(onion,1)]);
+% 
+%             figure
+%             imshow(InputImg);
+%             imrect(gca, [xoffSet+1, yoffSet+1, size(TemImg,2), size(TemImg,1)]);
 
                 % 计算匹配到的特征点数量
 %                 TemMatchArray(p, q) = max(c(:));    
@@ -57,7 +57,7 @@ for a = 1:4
 end
 
 InsideTheClass = [[TemMatchArray(1:10,1:10),TemMatchArray(11:20,11:20)];[TemMatchArray(21:30,21:30),TemMatchArray(31:40,31:40)]];
-InsideTheClass = InsideTheClass(InsideTheClass<60);
+InsideTheClass = InsideTheClass(InsideTheClass<1);
 tb1 = tabulate(InsideTheClass(:));
 
 OutsideTheClass1 = TemMatchArray(:,1:10);

@@ -24,6 +24,7 @@ for i = 1  : MidLineEnd-MidLineStart
 %     条件循环
     while EdgeImage(MidLineYUp,MidLineX) == 0
         MidLineYUp = MidLineYUp - 1;
+%         如果未检测到
         if MidLineYUp == 0
 %             跳出循环
         break
@@ -31,8 +32,9 @@ for i = 1  : MidLineEnd-MidLineStart
     end  
     while EdgeImage(MidLineYDown,MidLineX) == 0
         MidLineYDown = MidLineYDown+1;
-        if MidLineYDown == height;
-%             跳出循        
+%         如果未检测到
+        if MidLineYDown == height
+%             跳出循环  
         break
         end
     end 
@@ -49,12 +51,11 @@ end
 MidLine = polyfit(MidLineArray(1,:),MidLineArray(2,:),1);
 y1 = polyval(MidLine,MidLineArray(1,:));
 % figure
-% plot(MidLineArray(1,:),MidLineArray(2,:),'o')
-% hold on
-% figure
 % imshow(EdgeImage);
 % hold on
-% plot(MidLineArray(1,:),y1)
+% plot(MidLineArray(1,:),MidLineArray(2,:),'o')
+% hold on
+% plot(MidLineArray(1,:),y1,'--')
 % hold off
 
 % 求出斜率角度

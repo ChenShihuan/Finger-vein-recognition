@@ -2,7 +2,7 @@ for a = 1:4
         for b = 1:10
 %         a = 1;
 %         b = 1;
-        s1=strcat('E:\图像处理与机器视觉\590\切割2\','590-',num2str(a),'-',num2str(b),'-','1','.bmp'); 
+        s1=strcat('E:\图像处理与机器视觉\590\切割1\','590-',num2str(a),'-',num2str(b),'-','1','.bmp'); 
         Input = imread(s1);
         
 %% 实现1，先直方图均衡再CLAHE
@@ -31,12 +31,12 @@ for a = 1:4
         HisteqOutput = histeq(adapthisteqOutput);
         % imshowpair(mat2grayOutput,adapthisteqOutput,'montage')
         
-        s2=strcat('E:\图像处理与机器视觉\590\图像增强实现2-2\','590-',num2str(a),'-',num2str(b),'-','1','.bmp'); 
+        s2=strcat('E:\图像处理与机器视觉\590\图像增强实现2-1\','590-',num2str(a),'-',num2str(b),'-','1','.bmp'); 
         imwrite(HisteqOutput,s2)
         
         BW = imbinarize(HisteqOutput,'adaptive','ForegroundPolarity','bright','Sensitivity',0.635);
         BW = mat2gray(BW);
-        s3=strcat('E:\图像处理与机器视觉\590\二值化实现2-2\','590-',num2str(a),'-',num2str(b),'-','1','.bmp'); 
+        s3=strcat('E:\图像处理与机器视觉\590\二值化实现2-1\','590-',num2str(a),'-',num2str(b),'-','1','.bmp'); 
        imwrite(BW,s3)
        
         figure
